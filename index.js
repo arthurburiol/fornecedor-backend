@@ -24,10 +24,15 @@ app.get('/teste', (req, res) => {
 
 //rotas crud da tabela Estoque
 app.get('/estoque', estoque.listar);
+//22-06
+app.get('/estoque/produto/:produto_id', estoque.buscarPorProduto);
+app.put('/estoque/baixa/:produto_id', estoque.baixarEstoque);
+//FIM
 app.get('/estoque/:id', estoque.selecionar);
 app.post('/estoque', estoque.inserir);
 app.put('/estoque/:id', estoque.alterar);
 app.delete('/estoque/:id', estoque.excluir);
+
 
 //rotas crud da tabela Produto
 app.get('/produto', produto.listar);
@@ -48,7 +53,7 @@ app.delete('/usuario/:id', usuario.excluir);
 //rotas crud da tabela Fornecedor
 app.get('/fornecedor', fornecedor.listar);
 app.get('/fornecedor/:id', fornecedor.selecionar);
-app.post('fornecedor', fornecedor.inserir);
+app.post('/fornecedor', fornecedor.inserir);
 app.put('/fornecedor/:id', fornecedor.alterar);
 app.delete('/fornecedor/:id', fornecedor.excluir);
 

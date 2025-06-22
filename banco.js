@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 //Conexão com o banco de dados
-const sequelize = new Sequelize('banco_sis_fornecedor', 'postgres', '20052003', {
+const sequelize = new Sequelize('sis_fornecedor', 'postgres', 'postgres', {
     host: 'localhost',
     port: 5432,
     dialect:'postgres',
