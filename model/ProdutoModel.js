@@ -30,6 +30,10 @@ export default banco.define(
                 min: 0.01
             }
         },
+        peso: {
+            type: DataTypes.DECIMAL(10,2),
+            allowNull: false
+        },
         fornecedor_id: {
             type: DataTypes.INTEGER,
             allowNull: false
