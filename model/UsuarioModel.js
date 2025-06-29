@@ -27,7 +27,7 @@ export default banco.define(
         },
         senha: {
             type: DataTypes.STRING(255),
-            allowNull: false
+            allowNull: true
         },
         endereco: {
             type: DataTypes.TEXT,
@@ -41,6 +41,10 @@ export default banco.define(
             type: DataTypes.DATE,
             allowNull: true,
             defaultValue: DataTypes.NOW
+        },
+        token: {
+            type: DataTypes.STRING(100),
+            allowNull: true
         }
     }
 );
