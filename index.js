@@ -30,8 +30,8 @@ app.get('/estoque/produto/:produto_id', estoque.buscarPorProduto);
 app.put('/estoque/baixa/:produto_id', estoque.baixarEstoque);
 //FIM
 app.get('/estoque/:id', estoque.selecionar);
-app.post('/estoque', usuario.validarToken, estoque.inserir);
-app.put('/estoque/:id', usuario.validarToken, estoque.alterar);
+app.post('/estoque', estoque.inserir);
+app.put('/estoque/:id', estoque.alterar);
 app.delete('/estoque/:id', usuario.validarToken, estoque.excluir);
 
 
@@ -54,10 +54,10 @@ app.put('/senhausuario/:id', usuario.definirsenha)
 
 //rotas crud da tabela Fornecedor
 app.get('/fornecedor', fornecedor.listar);
-app.get('/fornecedor/:id', usuario.validarToken, fornecedor.selecionar);
-app.post('/fornecedor', usuario.validarToken, fornecedor.inserir);
-app.put('/fornecedor/:id', usuario.validarToken, fornecedor.alterar);
-app.delete('/fornecedor/:id', usuario.validarToken, fornecedor.excluir);
+app.get('/fornecedor/:id', fornecedor.selecionar);
+app.post('/fornecedor', fornecedor.inserir);
+app.put('/fornecedor/:id', fornecedor.alterar);
+app.delete('/fornecedor/:id', fornecedor.excluir);
 
 app.get('/solicitarfrete', api.solicitarFrete);
 app.get('/solicitardespacho', api.solicitarDespacho);
