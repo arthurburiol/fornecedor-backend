@@ -6,6 +6,7 @@ import estoque from "./controller/EstoqueController.js";
 import produto from "./controller/ProdutoController.js";
 import usuario from "./controller/UsuarioController.js";
 import api from "./controller/ApiController.js"
+import listarEstoqueBaixo from "./controller/EstoqueBaixoController.js";
 
 try {
     await banco.authenticate();
@@ -33,7 +34,8 @@ app.get('/estoque/:id', estoque.selecionar);
 app.post('/estoque', estoque.inserir);
 app.put('/estoque/:id', estoque.alterar);
 app.delete('/estoque/:id', usuario.validarToken, estoque.excluir);
-
+//AVISO ESTOQUE BAIXO
+app.get('/estoquebaixo', listarEstoqueBaixo);
 
 //rotas crud da tabela Produto
 app.get('/produto', produto.listar);
