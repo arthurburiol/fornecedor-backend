@@ -1,0 +1,26 @@
+O sistema foi desenvolvido com os módulos totalmente integrados entre si, garantindo a comunicação através de chamadas de API e acesso ao banco de dados. Essa integração 
+permite que todas as funcionalidades estejam conectadas, proporcionando um fluxo contínuo de informações.
+
+Logo ao abrir o sistema, o usuário se depara com a tela de login (/login). Nela, ele preenche o nome e o e-mail, e esses dados são enviados para o banco de dados para verificação. 
+Se estiverem corretos, o acesso às demais áreas do sistema é liberado. Esse processo já mostra a integração entre a interface.
+Depois do login, o usuário é direcionado para a tela principal, que é o módulo de estoque, acessível pela rota /home ou / que carregam o componente Home.
+Essa tela já puxa informações de dois módulos diferentes: o de produtos e o de fornecedores.
+
+Ao acessar o sistema, são carregados dados como o nome dos produtos, valor unitário, nome do fornecedor e a quantidade disponível em estoque.
+Tudo isso é feito por meio de requisições à API e exibido automaticamente no front-end. Ou seja, há uma troca constante de informações entre os módulos, onde cada parte depende da outra
+para apresentar os dados corretamente.
+Na aba de fornecedores, acessível pela rota /listafornecedor, o usuário pode visualizar os fornecedores cadastrados. Para cadastrar ou editar fornecedores, são usadas as rotas 
+/cadastrofornecedor e /cadastrofornecedor/:id respectivamente. No formulário, são preenchidos dados como ID, CNPJ, nome, e-mail, endereço e telefone. Essas informações são gravadas 
+no banco e utilizadas em outros módulos, especialmente no cadastro de produtos.
+
+Na aba de produtos, acessível pela rota /listaproduto, o usuário pode cadastrar novos itens, editar os já existentes ou até mesmo excluí-los. Para cadastrar ou editar produtos, as rotas 
+/cadastroproduto e /cadastroproduto/:id são usadas. Para cadastrar um produto, o sistema precisa se comunicar com o módulo de fornecedores, pois é necessário selecionar o fornecedor 
+correspondente.
+
+O cadastro de produtos envolve o preenchimento de informações como nome, descrição, categoria, valor, peso e o ID do fornecedor. Ao salvar, essas informações são enviadas para o 
+banco de dados por meio de uma requisição POST. No caso de alterações, o sistema realiza um PUT — tudo de forma integrada e dinâmica. 
+
+No geral, todos os módulos do sistema — login, estoque (Home), produtos e fornecedores — estão interligados por meio de chamadas HTTP e compartilham os mesmos dados através do banco. 
+Essa integração garante que o sistema funcione de forma coesa e fluida, com as informações sempre sincronizadas.
+Todas essas conexões foram testadas durante o desenvolvimento utilizando a ferramenta Insomnia para realizar chamadas às APIs e funcionam corretamente, comprovando a interoperabilidade 
+entre os módulos.
